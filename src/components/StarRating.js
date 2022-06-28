@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Movies from './Movie/Movies';
 
 const width = 110;
 
@@ -23,7 +24,7 @@ const cropWidth = rating => {
   return Math.floor((rating * width) / 5);
 };
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, getRating }) => {
   const containerStyle = { width: `${cropWidth(rating)}px` };
 
   return (
@@ -31,15 +32,15 @@ const StarRating = ({ rating }) => {
       <div style={styles.starsOuter}>
         <div style={containerStyle}>
           <div style={styles.starsEmptyInner}>
-            <i className="fa fa-star-o fa-lg" style={styles.star}></i>
-            <i className="fa fa-star-o fa-lg" style={styles.star}></i>
+            <i className="fa fa-star-o fa-lg" style={styles.star} onClick={() => getRating(1)}></i>
+            <i className="fa fa-star-o fa-lg" style={styles.star} onClick={() => getRating(2)}></i>
             <i className="fa fa-star-o fa-lg" style={styles.star}></i>
             <i className="fa fa-star-o fa-lg" style={styles.star}></i>
             <i className="fa fa-star-o fa-lg" style={styles.star}></i>
           </div>
           <div style={styles.starsInner}>
-            <i className="fa fa-star fa-lg" style={styles.star}></i>
-            <i className="fa fa-star fa-lg" style={styles.star}></i>
+            <i className="fa fa-star fa-lg" style={styles.star} onClick={() => getRating(1)}></i>
+            <i className="fa fa-star fa-lg" style={styles.star} onClick={() => getRating(2)}></i>
             <i className="fa fa-star fa-lg" style={styles.star}></i>
             <i className="fa fa-star fa-lg" style={styles.star}></i>
             <i className="fa fa-star fa-lg" style={styles.star}></i>
